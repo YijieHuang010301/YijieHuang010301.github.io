@@ -15,7 +15,7 @@ jobs:
           node-version: '18'
       - run: cd npx && npm install
       - run: cd npx && npm run build
-      - uses: actions/upload-pages-artifact@v1
+      - uses: actions/upload-pages-artifact@v2
         with:
           path: npx/build
 
