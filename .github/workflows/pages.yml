@@ -26,5 +26,4 @@ jobs:
       name: github-pages
       url: https://yijiehuang010301.github.io
     steps:
-      - uses: actions/download-pages-artifact@v3
       - uses: actions/deploy-pages@v4
