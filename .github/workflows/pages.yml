@@ -1,0 +1,30 @@
+name: Deploy React app to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - run: cd npx && npm install
+      - run: cd npx && npm run build
+      - uses: actions/upload-pages-artifact@v1
+        with:
+          path: npx/build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: https://yijiehuang010301.github.io
+    steps:
+      - uses: actions/download-pages-artifact@v1
+      - uses: actions/deploy-pages@v1
