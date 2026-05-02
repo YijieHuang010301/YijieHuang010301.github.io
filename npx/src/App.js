@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import './App.css';
 
 function App() {
-  const dynamicWords = [
+  const dynamicWords = useMemo(() => [
     'MCS at UIUC',
     '软件开发工程师',
     'AI 爱好者'
-  ];
+  ], []);
 
   const [displayText, setDisplayText] = useState('');
   const [wordIndex, setWordIndex] = useState(0);
@@ -32,14 +32,14 @@ function App() {
     }
 
     return () => clearTimeout(timeout);
-  }, [displayText, isDeleting, wordIndex]);
+  }, [displayText, isDeleting, wordIndex, dynamicWords]);
 
   return (
     <div className="App">
       {/* Navigation Header */}
       <nav className="navbar">
         <div className="nav-container">
-          <a href="#" className="logo">黄亦劼</a>
+          <button className="logo" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>黄亦劼</button>
           <div className="nav-links">
             <a href="#news">最新动态</a>
             <a href="#projects">项目</a>
@@ -69,7 +69,7 @@ function App() {
             </p>
             <div className="hero-buttons">
               <a href="#contact" className="btn btn-primary">联系我</a>
-              <a href="#" className="btn btn-secondary">📄 下载简历</a>
+              <button className="btn btn-secondary" onClick={() => alert('简历下载功能即将上线')}>📄 下载简历</button>
             </div>
           </div>
           <div className="hero-avatar">
@@ -140,7 +140,7 @@ function App() {
                   <span>Django</span>
                   <span>MySQL</span>
                 </div>
-                <a href="#" className="project-link">查看详情 →</a>
+                <button className="project-link" onClick={() => alert('项目详情即将上线')}>查看详情 →</button>
               </div>
             </div>
 
@@ -162,7 +162,7 @@ function App() {
                   <span>GCP</span>
                   <span>DataViz</span>
                 </div>
-                <a href="#" className="project-link">查看详情 →</a>
+                <button className="project-link" onClick={() => alert('项目详情即将上线')}>查看详情 →</button>
               </div>
             </div>
 
@@ -184,7 +184,7 @@ function App() {
                   <span>Faiss</span>
                   <span>Redis</span>
                 </div>
-                <a href="#" className="project-link">查看详情 →</a>
+                <button className="project-link" onClick={() => alert('项目详情即将上线')}>查看详情 →</button>
               </div>
             </div>
 
