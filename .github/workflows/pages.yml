@@ -15,7 +15,7 @@ jobs:
           node-version: '18'
       - run: cd npx && npm install
       - run: cd npx && npm run build
-      - uses: actions/upload-pages-artifact@v2
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: npx/build
 
@@ -26,5 +26,5 @@ jobs:
       name: github-pages
       url: https://yijiehuang010301.github.io
     steps:
-      - uses: actions/download-pages-artifact@v1
-      - uses: actions/deploy-pages@v1
+      - uses: actions/download-pages-artifact@v3
+      - uses: actions/deploy-pages@v4
