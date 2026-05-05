@@ -345,6 +345,13 @@ body {
   overflow: hidden;
 }
 
+.project-cover {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
 .image-placeholder {
   color: var(--text-light);
   font-size: 0.9rem;
@@ -399,16 +406,51 @@ body {
 }
 
 .project-link {
-  color: var(--secondary-color);
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: 36px;
+  padding: 8px 17px;
+  background: #0071e3;
+  color: #fff;
+  border: 0;
+  border-radius: 999px;
+  box-shadow: none;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.92rem;
   text-decoration: none;
-  font-weight: 500;
-  transition: all 0.2s;
+  font-weight: 600;
+  line-height: 1;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-link span {
+  font-size: 1.12rem;
+  line-height: 0.8;
+  transform: translateY(-1px);
 }
 
 .project-link:hover {
-  color: var(--emphasis);
-  transform: translateX(4px);
-  display: inline-block;
+  background: #0077ed;
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0, 113, 227, 0.22);
+}
+
+.project-link:active {
+  background: #006edb;
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.project-link:focus-visible {
+  outline: 3px solid rgba(0, 113, 227, 0.28);
+  outline-offset: 3px;
 }
 
 /* Experience */

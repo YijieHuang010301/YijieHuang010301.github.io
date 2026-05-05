@@ -140,13 +140,19 @@ function App() {
                   <span>Django</span>
                   <span>MySQL</span>
                 </div>
-                <button className="project-link" onClick={() => alert('项目详情即将上线')}>查看详情 →</button>
+                <button className="project-link" type="button" onClick={() => alert('项目详情即将上线')}>
+                  查看详情 <span aria-hidden="true">›</span>
+                </button>
               </div>
             </div>
 
             <div className="project-card">
               <div className="project-image">
-                <div className="image-placeholder">项目图片</div>
+                <img
+                  src="/images/olympics-data-cover.png"
+                  alt="奥运会数据网站项目封面"
+                  className="project-cover"
+                />
               </div>
               <div className="project-content">
                 <p className="project-tag">全栈开发</p>
@@ -162,7 +168,14 @@ function App() {
                   <span>GCP</span>
                   <span>DataViz</span>
                 </div>
-                <button className="project-link" onClick={() => alert('项目详情即将上线')}>查看详情 →</button>
+                <a
+                  className="project-link"
+                  href="https://olympics-demo-d7gc8fzgk5d0bf9b8.service.tcloudbase.com/OlympicsInTokyo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  查看详情 <span aria-hidden="true">›</span>
+                </a>
               </div>
             </div>
 
@@ -184,7 +197,9 @@ function App() {
                   <span>Faiss</span>
                   <span>Redis</span>
                 </div>
-                <button className="project-link" onClick={() => alert('项目详情即将上线')}>查看详情 →</button>
+                <button className="project-link" type="button" onClick={() => alert('项目详情即将上线')}>
+                  查看详情 <span aria-hidden="true">›</span>
+                </button>
               </div>
             </div>
 
