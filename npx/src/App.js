@@ -148,11 +148,15 @@ function App() {
 
             <div className="project-card">
               <div className="project-image">
-                <img
-                  src="/images/olympics-data-cover.png"
-                  alt="奥运会数据网站项目封面"
-                  className="project-cover"
-                />
+                <picture className="project-cover">
+                  <source srcSet="/images/olympics-data-cover.webp" type="image/webp" />
+                  <img
+                    src="/images/olympics-data-cover.png"
+                    alt="奥运会数据网站项目封面"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
               </div>
               <div className="project-content">
                 <p className="project-tag">全栈开发</p>
