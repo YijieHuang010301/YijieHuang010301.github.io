@@ -39,7 +39,6 @@ function App() {
       {/* Navigation Header */}
       <nav className="navbar">
         <div className="nav-container">
-          <button className="logo" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>黄亦劼</button>
           <div className="nav-links">
             <a href="#news">最新动态</a>
             <a href="#projects">项目</a>
@@ -59,7 +58,7 @@ function App() {
             <p className="hero-dynamic">
               <span>{displayText}</span><span className="cursor" aria-hidden="true"></span>
             </p>
-            <p className="hero-subtitle">策略 · 产品 · 开发</p>
+            <p className="hero-subtitle">软件开发 · AI工程师</p>
             <p className="hero-desc">
               伊利诺伊大学香槟分校计算机科学硕士，
               莱斯大学计算机科学与数学双专业本科。
@@ -69,7 +68,9 @@ function App() {
             </p>
             <div className="hero-buttons">
               <a href="#contact" className="btn btn-primary">联系我</a>
-              <button className="btn btn-secondary" onClick={() => alert('简历下载功能即将上线')}>📄 下载简历</button>
+              <a href="/files/resume-2025.pdf" className="btn btn-secondary" download>
+                📄 下载简历
+              </a>
             </div>
           </div>
           <div className="hero-avatar">
@@ -124,25 +125,48 @@ function App() {
             
             <div className="project-card">
               <div className="project-image">
-                <div className="image-placeholder">项目图片</div>
+                <picture className="project-cover">
+                  <source srcSet="/images/comment-crawl-cover.webp" type="image/webp" />
+                  <img
+                    src="/images/comment-crawl-cover.png"
+                    alt="电商评论爬取系统项目封面"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
               </div>
               <div className="project-content">
-                <p className="project-tag">分布式系统</p>
+                <p className="project-tag">分布式爬虫</p>
                 <h3>电商评论爬取系统</h3>
                 <p className="project-desc">
-                  使用Scrapy-Redis架构设计分布式网页爬取系统，从多个电商平台收集产品评论和元数据。
-                  开发基于Django的控制平台，实现任务监控和错误报告。
+                  构建多平台商品评论爬取管道，将Excel商品链接解析为Redis分发的Scrapy任务，
+                  抽取评分与评论数据并规范化写入MySQL，支持任务模拟、状态追踪与数据流展示。
                 </p>
                 <div className="project-tech">
                   <span>Python</span>
                   <span>Scrapy</span>
                   <span>Redis</span>
-                  <span>Django</span>
+                  <span>FastAPI</span>
                   <span>MySQL</span>
                 </div>
-                <button className="project-link" type="button" onClick={() => alert('项目详情即将上线')}>
-                  查看详情 <span aria-hidden="true">›</span>
-                </button>
+                <div className="project-actions">
+                  <a
+                    className="project-link"
+                    href="https://olympics-demo-d7gc8fzgk5d0bf9b8-1306054095.tcloudbaseapp.com/comment-crawl/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    在线演示 <span aria-hidden="true">›</span>
+                  </a>
+                  <a
+                    className="project-link project-link-secondary"
+                    href="https://github.com/YijieHuang010301/comment_crawl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub <span aria-hidden="true">›</span>
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -172,14 +196,24 @@ function App() {
                   <span>GCP</span>
                   <span>DataViz</span>
                 </div>
-                <a
-                  className="project-link"
-                  href="https://olympics-demo-d7gc8fzgk5d0bf9b8.service.tcloudbase.com/OlympicsInTokyo"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  查看详情 <span aria-hidden="true">›</span>
-                </a>
+                <div className="project-actions">
+                  <a
+                    className="project-link"
+                    href="https://olympics-demo-d7gc8fzgk5d0bf9b8.service.tcloudbase.com/OlympicsInTokyo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    在线演示 <span aria-hidden="true">›</span>
+                  </a>
+                  <a
+                    className="project-link project-link-secondary"
+                    href="https://github.com/YijieHuang010301/OlympicsInTokyo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub <span aria-hidden="true">›</span>
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -368,22 +402,48 @@ function App() {
             <p className="section-label">联系我</p>
             <h2 className="section-title">Get in Touch</h2>
           </div>
-          <p className="contact-intro">
-            我正在寻找充满挑战的机会。如果您有任何建议或想交流，欢迎随时联系！
-          </p>
-          <div className="contact-methods">
-            <a href="mailto:hyj20010301@163.com" className="contact-link">
-              📧 hyj20010301@163.com
-            </a>
-            <a href="tel:+8613336020703" className="contact-link">
-              📞 +86 133 3602 0703
-            </a>
-            <a href="https://github.com" className="contact-link" target="_blank" rel="noopener noreferrer">
-              💻 GitHub
-            </a>
-            <a href="https://linkedin.com" className="contact-link" target="_blank" rel="noopener noreferrer">
-              🔗 LinkedIn
-            </a>
+          <div className="contact-panel">
+            <div className="contact-copy">
+              <p className="contact-intro">
+                我正在寻找后端开发、云基础设施和AI工程相关机会。如果您有合适的岗位、项目合作或技术交流想法，欢迎联系我。
+              </p>
+              <div className="contact-methods">
+                <a href="mailto:hyj20010301@163.com" className="contact-link">
+                  <span>邮箱</span>
+                  hyj20010301@163.com
+                </a>
+                <a href="tel:+8613336020703" className="contact-link">
+                  <span>电话</span>
+                  +86 133 3602 0703
+                </a>
+                <a href="https://github.com/YijieHuang010301" className="contact-link" target="_blank" rel="noopener noreferrer">
+                  <span>GitHub</span>
+                  YijieHuang010301
+                </a>
+              </div>
+            </div>
+            <form
+              className="contact-form"
+              action="mailto:hyj20010301@163.com"
+              method="post"
+              encType="text/plain"
+            >
+              <label>
+                Name
+                <input type="text" name="name" autoComplete="name" />
+              </label>
+              <label>
+                Email
+                <input type="email" name="email" autoComplete="email" />
+              </label>
+              <label>
+                Message
+                <textarea name="message" rows="5"></textarea>
+              </label>
+              <button type="submit" className="project-link contact-submit">
+                发送邮件 <span aria-hidden="true">›</span>
+              </button>
+            </form>
           </div>
         </section>
 
